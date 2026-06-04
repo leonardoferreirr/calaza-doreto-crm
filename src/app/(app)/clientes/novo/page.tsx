@@ -76,26 +76,25 @@ export default function NovoClientePage() {
       const r = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${limpo}`);
       if (!r.ok) throw new Error("CNPJ não encontrado na base pública.");
       const d = await r.json();
+      // Cada busca SUBSTITUI os campos vindos da API (identificação + endereço +
+      // fixo da Receita + sugestão de serviço). Campos manuais (responsável,
+      // e-mails, WhatsApp, IM, valor, dia venc) ficam intactos.
       setForm((f) => ({
         ...f,
-        razao_social: d.razao_social ?? f.razao_social,
-        nome_fantasia: d.nome_fantasia ?? f.nome_fantasia,
-        cep: d.cep ? mascaraCep(d.cep) : f.cep,
-        logradouro: [d.descricao_tipo_de_logradouro, d.logradouro].filter(Boolean).join(" ") || f.logradouro,
-        numero: d.numero ?? f.numero,
-        bairro: d.bairro ?? f.bairro,
-        cidade: d.municipio ?? f.cidade,
-        uf: d.uf ?? f.uf,
-        // sugestão de descrição com base no CNAE
-        servico_descricao:
-          f.servico_descricao ||
-          (d.cnae_fiscal_descricao
-            ? `Assessoria jurídica empresarial para ${d.cnae_fiscal_descricao.toLowerCase()} — honorários mensais`
-            : ""),
-        // telefone informado no cadastro da Receita (pode estar desatualizado, vai como sugestão)
-        fixo:
-          f.fixo ||
-          (d.ddd_telefone_1 ? mascaraTel(d.ddd_telefone_1.toString().replace(/\D/g, "")) : ""),
+        razao_social: d.razao_social ?? "",
+        nome_fantasia: d.nome_fantasia ?? "",
+        cep: d.cep ? mascaraCep(d.cep) : "",
+        logradouro: [d.descricao_tipo_de_logradouro, d.logradouro].filter(Boolean).join(" "),
+        numero: d.numero ?? "",
+        bairro: d.bairro ?? "",
+        cidade: d.municipio ?? "",
+        uf: d.uf ?? "",
+        servico_descricao: d.cnae_fiscal_descricao
+          ? `Assessoria jurídica empresarial para ${d.cnae_fiscal_descricao.toLowerCase()} — honorários mensais`
+          : "",
+        fixo: d.ddd_telefone_1
+          ? mascaraTel(d.ddd_telefone_1.toString().replace(/\D/g, ""))
+          : "",
       }));
       setOk(true);
     } catch (e: any) {
