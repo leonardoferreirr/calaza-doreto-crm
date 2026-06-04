@@ -158,12 +158,12 @@ function NavGroup({
             href={it.href}
             className="flex items-center gap-2.5 px-3 py-2 rounded-lg transition"
             style={{
-              background: active ? "var(--bg)" : "transparent",
-              color: active ? "var(--brand)" : "var(--text)",
+              background: active ? "var(--brand)" : "transparent",
+              color: active ? "#ffffff" : "var(--text)",
               fontWeight: active ? 600 : 500,
             }}
           >
-            <span style={{ color: active ? "var(--brand)" : "var(--text-soft)" }}>{it.icon}</span>
+            <span style={{ color: active ? "#ffffff" : "var(--text-soft)" }}>{it.icon}</span>
             <span>{it.label}</span>
             {it.badge ? <Badge n={it.badge} tone={it.badgeTone} /> : null}
           </Link>
