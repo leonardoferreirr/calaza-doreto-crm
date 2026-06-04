@@ -1,0 +1,17 @@
+# deps
+node_modules/
+# next
+.next/
+out/
+next-env.d.ts
+# env / segredos
+.env
+.env*.local
+# certificados (nunca versionar)
+*.pfx
+*.p12
+# misc
+.DS_Store
+*.log
+.vercel
+coverage/
