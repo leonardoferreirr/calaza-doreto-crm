@@ -240,7 +240,7 @@ function Emails() {
           <Field label="Responder para (reply-to)" value="financeiro@calazadoreto.com.br" />
           <Field label="Provedor SMTP" value="Resend" />
         </div>
-        <Field label="Assinatura padrão (HTML)" value="<p>Atenciosamente,<br>Bruno Doreto · Diretor Operacional<br>Calaza Doreto Advocacia</p>" mono />
+        <Field label="Assinatura padrão (HTML)" value="<p>Atenciosamente,<br>Bruno Calaza · Diretor Operacional<br>Calaza Doreto Advocacia</p>" mono />
       </Section>
       <SaveBar />
     </>
@@ -287,9 +287,9 @@ function Branding() {
 
 function Usuarios() {
   const u = [
-    { nome: "Bruno Doreto", email: "bruno@calazadoreto.com.br", cargo: "Diretor Operacional", role: "Admin", iniciais: "BD" },
-    { nome: "Eliana Calaza", email: "eliana@calazadoreto.com.br", cargo: "Sócia fundadora", role: "Admin", iniciais: "EC" },
-    { nome: "Marcos Doreto", email: "marcos@calazadoreto.com.br", cargo: "Sócio fundador", role: "Admin", iniciais: "MD" },
+    { nome: "Bruno Calaza", email: "bruno@calazadoreto.com.br", cargo: "Diretor Operacional", role: "Admin", iniciais: "BC", avatar: "/avatar-bruno.png" },
+    { nome: "Eliana Calaza", email: "eliana@calazadoreto.com.br", cargo: "Sócia fundadora", role: "Admin", iniciais: "EC", avatar: null },
+    { nome: "Marcos Doreto", email: "marcos@calazadoreto.com.br", cargo: "Sócio fundador", role: "Admin", iniciais: "MD", avatar: null },
   ];
   return (
     <>
@@ -301,12 +301,21 @@ function Usuarios() {
               className="rounded-lg border px-4 py-3 flex items-center gap-3"
               style={{ borderColor: "var(--border)" }}
             >
-              <div
-                className="w-9 h-9 rounded-full grid place-items-center text-white font-semibold text-[12px]"
-                style={{ background: "var(--brand)" }}
-              >
-                {x.iniciais}
-              </div>
+              {x.avatar ? (
+                <img
+                  src={x.avatar}
+                  alt={x.nome}
+                  className="w-9 h-9 rounded-full object-cover"
+                  style={{ border: "1px solid var(--border)" }}
+                />
+              ) : (
+                <div
+                  className="w-9 h-9 rounded-full grid place-items-center text-white font-semibold text-[12px]"
+                  style={{ background: "var(--brand)" }}
+                >
+                  {x.iniciais}
+                </div>
+              )}
               <div className="flex-1 min-w-0">
                 <div className="text-[13px] font-medium">{x.nome}</div>
                 <div className="text-[11.5px]" style={{ color: "var(--text-muted)" }}>

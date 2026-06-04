@@ -114,14 +114,14 @@ export default function Sidebar() {
         className="px-4 py-3 border-t flex items-center gap-3"
         style={{ borderColor: "var(--border)" }}
       >
-        <div
-          className="w-9 h-9 rounded-full grid place-items-center text-white font-semibold text-sm shrink-0"
-          style={{ background: "#3a5fa8" }}
-        >
-          BD
-        </div>
+        <img
+          src="/avatar-bruno.png"
+          alt="Bruno Calaza"
+          className="w-9 h-9 rounded-full object-cover shrink-0"
+          style={{ border: "1px solid var(--border)" }}
+        />
         <div className="min-w-0 leading-tight">
-          <div className="text-[13px] font-medium truncate">Bruno Doreto</div>
+          <div className="text-[13px] font-medium truncate">Bruno Calaza</div>
           <div className="text-[11px] truncate" style={{ color: "var(--text-muted)" }}>
             Diretor operacional
           </div>
