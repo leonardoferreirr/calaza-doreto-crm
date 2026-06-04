@@ -3,8 +3,11 @@ import "./globals.css";
 import { BRAND_DEFAULT, brandToCssVars } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "CRM de Cobrança",
-  description: "Gestão de cobranças, NFS-e e follow-up — white-label.",
+  title: "CRM • Calaza Doreto",
+  description: "Gestão de cobranças, NFS-e e follow-up — Calaza Doreto Advocacia.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 // Script inline pra aplicar o tema ANTES do paint inicial (evita flash).
