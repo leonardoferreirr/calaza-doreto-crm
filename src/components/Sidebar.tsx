@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { metricas } from "@/lib/mock";
+import LogoCalaza from "./LogoCalaza";
 
 type Item = {
   href: string;
@@ -83,23 +84,12 @@ export default function Sidebar() {
       className="hidden md:flex flex-col w-[232px] shrink-0 h-screen sticky top-0 border-r"
       style={{ background: "var(--surface)", borderColor: "var(--border)", color: "var(--text)" }}
     >
-      {/* Logo do tenant */}
+      {/* Logo do tenant — azul no light, branca no dark via .logo-calaza */}
       <div
-        className="px-5 py-4 border-b flex items-center gap-2"
+        className="px-5 py-5 border-b flex items-center"
         style={{ borderColor: "var(--border)" }}
       >
-        <div
-          className="w-8 h-8 rounded-lg grid place-items-center text-white font-bold text-sm"
-          style={{ background: "var(--brand)" }}
-        >
-          CD
-        </div>
-        <div className="leading-tight">
-          <div className="text-[13px] font-semibold">Calaza Doreto</div>
-          <div className="text-[10px] uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
-            CRM de cobrança
-          </div>
-        </div>
+        <LogoCalaza className="logo-calaza" height={32} />
       </div>
 
       {/* Botão primário: nova cobrança/cliente */}

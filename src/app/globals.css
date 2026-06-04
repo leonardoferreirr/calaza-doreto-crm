@@ -38,3 +38,7 @@ html, body {
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   transition: background-color .25s ease, color .25s ease;
 }
+
+/* Logo Calaza Doreto: azul no light, branca no dark. */
+.logo-calaza { color: #1e4284; }
+html.dark .logo-calaza { color: #ffffff; }
