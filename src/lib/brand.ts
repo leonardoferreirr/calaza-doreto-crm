@@ -18,11 +18,10 @@ export const BRAND_DEFAULT: Brand = {
   corTexto: "#ffffff",
 };
 
-// Converte tokens do tenant em CSS vars pra aplicar no <html>/<body>.
+// Aplica APENAS --brand do tenant. As vars de tema (--surface, --bg, --text,
+// --header-bg, --ink) vivem em globals.css e respondem ao html.dark.
 export function brandToCssVars(b: Brand): CSSProperties {
   return {
     ["--brand" as any]: b.corMarca,
-    ["--ink" as any]: b.corFundo,
-    ["--surface" as any]: b.corTexto,
   };
 }

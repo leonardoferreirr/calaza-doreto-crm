@@ -3,15 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --brand: #1e4284;   /* azul Calaza Doreto */
-  --ink: #101422;     /* navy escuro */
-  --surface: #ffffff; /* branco */
+  --brand: #1e4284;
+  --brand-soft: #3a5fa8;
+  --ink: #101422;
+  --surface: #ffffff;
+  --bg: #f5f6f8;
+  --text: #15181f;
+  --text-soft: rgba(0,0,0,0.55);
+  --text-muted: rgba(0,0,0,0.45);
+  --border: rgba(0,0,0,0.06);
+  --border-hover: rgba(0,0,0,0.16);
+  --header-bg: #101422;
+}
+
+html.dark {
+  --brand: #5b8bd6;
+  --brand-soft: #7ba8e8;
+  --ink: #0a0d14;
+  --surface: #161b27;
+  --bg: #0b0e15;
+  --text: #e6e8eb;
+  --text-soft: rgba(255,255,255,0.66);
+  --text-muted: rgba(255,255,255,0.42);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.22);
+  --header-bg: #07090e;
 }
 
 html, body {
   padding: 0;
   margin: 0;
-  background: #f5f6f8;
-  color: #15181f;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition: background-color .25s ease, color .25s ease;
 }
